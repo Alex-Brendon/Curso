@@ -40,7 +40,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-group">Nível de Acesso</label>
-                <select name="nivelusuario" class="form-select">
+                <select name="nivel" class="form-select">
                     <option value="1">Administrador</option>
                     <option value="2">Funcionário</option>
                     <option value="3">Conferente</option>

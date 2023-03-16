@@ -12,7 +12,7 @@
 
 <body>
 
-  <div class="container" style="margin-top: 40px; width: 550px;">
+  <div class="container" style="margin-top: 40px;">
     <h3>Aprovar Usuário</h3>
     <br>
 
@@ -36,19 +36,22 @@
         while ($array = mysqli_fetch_array($buscar)) {
 
           $id_usuario = $array['id_usuario'];
-          $nomeusuario = $array['nomeusuario'];
-          $emailusuario = $array['emailusuario'];
-          $nivelusuario = $array['nivelusuario'];
+          $nomeusuario = $array['nome_usuario'];
+          $email = $array['email_usuario'];
+          $nivel = $array['nivel_usuario'];
         ?>
 
           <tr>
-            <td><?php echo $nome_usuario ?></td>
-            <td><?php echo $emailusuario ?></td>
-            <td><?php echo $nivelusuario ?></td>
+            <td><?php echo $nomeusuario ?></td>
+            <td><?php echo $email ?></td>
+            <td><?php echo $nivel ?></td>
 
             <td>
-              <a class="btn btn-warning btn-sm" href="editar_categoria.php?id=<?php echo $id_usuario ?>" role="button"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Editar</a>
-              <a class="btn btn-danger btn-sm" href="deletar_categoria.php?id=<?php echo $id_usuario ?>" role="button"><i class="fa-solid fa-trash"></i></i>&nbsp;Deletar</a>
+              <a class="btn btn-success btn-sm" href="_aprovar_usuario.php?id=<?php echo $id_usuario ?>&nivel=1" role="button"><i class="fa-regular fa-face-smile-beam"></i>&nbsp;Administrador</a>
+              <a class="btn btn-warning btn-sm" href="_aprovar_usuario.php?id=<?php echo $id_usuario ?>&nivel=2" role="button"><i class="fa-regular fa-face-smile-beam"></i>&nbsp;Funcionário</a>
+              <a class="btn btn-dark btn-sm" href="_aprovar_usuario.php?id=<?php echo $id_usuario ?>&nivel=3" role="button"><i class="fa-regular fa-face-smile-beam"></i></i>&nbsp;Conferente</a>
+
+              <a class="btn btn-danger btn-sm" href="deletar_usuario.php?id=<?php echo $id_usuario ?>" role="button"><i class="fa-solid fa-trash"></i></i>&nbsp;Deletar</a>
             </td>
 
           </tr>

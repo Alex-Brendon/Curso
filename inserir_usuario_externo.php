@@ -6,7 +6,7 @@ include ('script/password.php');
 $nomeusuario = $_POST['nomeusuario'];
 $emailusuario = $_POST['emailusuario'];
 $senhausuario = $_POST['senhausuario'];
-//$nivelusuario = $_POST['nivelusuario'];
+//$nivel = $_POST['nivel'];
 $status = 'Inativo';
 
 $sql = "INSERT INTO `usuarios`(`nome_usuario`, `email_usuario`, `senha_usuario`, `status`) VALUES ('$nomeusuario','$emailusuario', sha1('$senhausuario'), '$status')";
