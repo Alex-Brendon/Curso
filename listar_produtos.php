@@ -11,6 +11,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+$usuario = $_SESSION['usuario'];
+
+if (!isset($_SESSION['usuario'])) {
+  header('Location: index.php');
+}
+
+include ("conexao.php");
+
+$sql = "SELECT nivel_usuario FROM usuarios WHERE email_usuario = '$usuario' AND status = 'Ativo'";
+$buscar = mysqli_query($conexao, $sql);
+$array = mysqli_fetch_array($buscar);
+$nivel = $array['nivel_usuario'];
+?>
 
   <div class="container" style="margin-top: 40px;">
     <h3>Lista de Produtos</h3>
@@ -52,8 +67,15 @@
             <td><?php echo $quantidade ?></td>
             <td><?php echo $fornecedor ?></td>
             <td>
+              <?php
+              if (($nivel == 1)||($nivel == 2)) {
+              ?>
               <a class="btn btn-warning btn-sm" href="editar_produto.php?id=<?php echo $id_estoque ?>" role="button"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Editar</a>
+              <?php } 
+              if ($nivel ==1) {
+              ?>
               <a class="btn btn-danger btn-sm" href="deletar_produto.php?id=<?php echo $id_estoque ?>" role="button"><i class="fa-solid fa-trash"></i></i>&nbsp;Deletar</a>
+              <?php } ?>
             </td>
           </tr>
         <?php } ?>

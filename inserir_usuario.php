@@ -3,13 +3,13 @@
 include ('conexao.php');
 include ('script/password.php');
 
-$nome_usuario = $_POST['nome_usuario'];
-$email_usuario = $_POST['email_usuario'];
-$senha_usuario = $_POST['senha_usuario'];
+$nome_usuario = $_POST['nomeusuario'];
+$email_usuario = $_POST['emailusuario'];
+$senha_usuario = $_POST['senhausuario'];
 $nivel = $_POST['nivel'];
-$status = 'ATIVO';
+$status = 'Ativo';
 
-$sql = "INSERT INTO `usuarios`(`nome_usuario`, `email_usuario`, `senha_usuario`, `nivel`, `status`) VALUES ('$nome_usuario','$email_usuario', sha1('$senha_usuario'), $nivel, '$status')";
+$sql = "INSERT INTO `usuarios`(`nome_usuario`, `email_usuario`, `senha_usuario`, `nivel_usuario`, `status`) VALUES ('$nome_usuario','$email_usuario', sha1('$senha_usuario'), $nivel, '$status')";
 
 $inserir = mysqli_query($conexao, $sql);
 

@@ -21,14 +21,14 @@
     <center>
         <img src="img/Cadeado.png" alt="Cadeado.png" width="125px;" height="125px;">
     </center>
-    <form>
+    <form action="index1.php" method="POST">
         <div class="mb-3">
             <label for="usuario" class="form-group">Usuário</label>
-            <input type="email" class="form-control" placeholder="Usuário" autocomplete="off" required>
+            <input type="email" name="usuario" class="form-control" placeholder="Usuário" autocomplete="off" required>
         </div>
         <div class="mb-3">
             <label for="senha" class="form-group">Senha</label>
-            <input type="password" class="form-control" placeholder="Senha" autocomplete="off" required>
+            <input type="password" name="senha" class="form-control" placeholder="Senha" autocomplete="off" required>
         </div>
         <div style="text-align: right;">
             <button type="submit" class="btn btn-success">Entrar</button>

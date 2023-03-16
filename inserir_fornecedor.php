@@ -12,7 +12,7 @@ $inserir = mysqli_query($conexao, $sql);
 <link rel="stylesheet" href="css/bootstrap.css">
 <div class="container" style="width: 500px; margin-top: 30px;">
     <center>
-        <h4>Fornecedor Adicionado com Sucesso !</h4>
+        <h4>Fornecedor Adicionado com Sucesso!</h4>
     </center>
     <div style="padding-top: 20px;">
         <center>

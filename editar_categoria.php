@@ -26,7 +26,14 @@ $id = $_GET["id"];
 	</style>
 </head>
 <body>
+<?php
+session_start();
+$usuario = $_SESSION['usuario'];
 
+if (!isset($_SESSION['usuario'])) {
+  header('Location: index.php');
+}
+?>
 
 <div class="container" id="tamanhocontainer" style=" margin-top: 40px;">
     <h4>Formulário de Edição</h4>
