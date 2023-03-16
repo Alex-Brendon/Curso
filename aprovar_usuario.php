@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprovar Usuários</title>
+  <title>Aprovar Usuário</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="https://kit.fontawesome.com/766dcb6c69.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <div class="container" style="margin-top: 40px;">
-    <h3>Lista de Usuários</h3>
+  <div class="container" style="margin-top: 40px; width: 550px;">
+    <h3>Aprovar Usuário</h3>
     <br>
 
 
@@ -30,36 +30,29 @@
 
         <?php
         include('conexao.php');
-        $sql = "SELECT * FROM `usuarios` WHERE `status` = 'INATIVO'";
+        $sql = "SELECT * FROM usuarios WHERE status = 'Inativo'";
         $buscar = mysqli_query($conexao, $sql);
 
         while ($array = mysqli_fetch_array($buscar)) {
 
           $id_usuario = $array['id_usuario'];
-          $nomeusuario = $array['nome_usuario'];
-          $email = $array['email_usuario'];
-          $nivel = $array['nivel_usuario'];
+          $nomeusuario = $array['nomeusuario'];
+          $emailusuario = $array['emailusuario'];
+          $nivelusuario = $array['nivelusuario'];
         ?>
 
-        <tr>
-            <td><?php echo $nomeusuario ?></td>
-            <td><?php echo $email ?></td>
-            <td><?php echo $nivel ?></td>
+          <tr>
+            <td><?php echo $nome_usuario ?></td>
+            <td><?php echo $emailusuario ?></td>
+            <td><?php echo $nivelusuario ?></td>
 
             <td>
-              <a class="btn btn-success btn-sm" href="_aprovar_usuarios.php?id=<?php echo  $id_usuario ?>&nivel=1" role="button"><i class="fa-regular fa-square-check"></i>&nbsp;Administrador</a>
-
-              <a class="btn btn-warning btn-sm" href="_aprovar_usuarios.php?id=<?php echo $id_usuario ?>&nivel=2" role="button"><i class="fa-regular fa-square-check"></i>&nbsp;Funcionário</a>
-
-              <a class="btn btn-dark btn-sm" href="_aprovar_usuarios.php?id=<?php echo $id_usuario ?>&nivel=3" role="button"><i class="fa-regular fa-square-check"></i>&nbsp;Conferente</a>
-
-              <a class="btn btn-danger btn-sm" href="deletar_usuario.php?id=<?php echo $id_usuario ?>&nivel=" role="button"><i class="fa-solid fa-trash"></i></i>&nbsp;Deletar</a>
+              <a class="btn btn-warning btn-sm" href="editar_categoria.php?id=<?php echo $id_usuario ?>" role="button"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Editar</a>
+              <a class="btn btn-danger btn-sm" href="deletar_categoria.php?id=<?php echo $id_usuario ?>" role="button"><i class="fa-solid fa-trash"></i></i>&nbsp;Deletar</a>
             </td>
 
-        </tr>
-
+          </tr>
         <?php } ?>
-
       </tbody>
     </table>
     <div style="text-align: right;">
