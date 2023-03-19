@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<?php
+<!-- <?php
 session_start();
 $usuario = $_SESSION['usuario'];
 
@@ -24,7 +24,7 @@ $sql = "SELECT nivel_usuario FROM usuarios WHERE email_usuario = '$usuario' AND 
 $buscar = mysqli_query($conexao, $sql);
 $array = mysqli_fetch_array($buscar);
 $nivel = $array['nivel_usuario'];
-?>
+?> -->
 <div style="text-align: right; margin-top:15px; margin-right: 15px">
   <a href="index.php" type="submit" class="btn btn-danger">Sair</a>
 </div>
